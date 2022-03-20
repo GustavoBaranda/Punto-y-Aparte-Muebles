@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import "_variables";
+
+@mixin base {
+    color: $blanco;
+    cursor: pointer;
+}
+
+@mixin background {
+    background: none;
+    color: $blanco;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none !important;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+nav {
+    background: $negro;
+    height: 100px;
+    width: 100%;
+    
+    ul {
+        float: right;
+        margin-right: 20px;
+    
+        li {
+            display: inline-block;
+            line-height: 100px;
+            margin: 0 5px;
+
+            a {
+                color: $blanco;
+                font-size: 1.2rem;
+                font-weight: bold;
+                padding: 7px 13px;
+                border-radius: 3px ;
+            }
+
+            a:hover{
+                background: $blanco;
+                transition: .5s;
+            }
+
+        }
+    
+    }
+
+}
+
+.enlace {
+    position: absolute;
+    padding: 20px 50px;
+}
+
+.logo {
+    height: 60px;
+    cursor: pointer;
+}
+
+.active {
+    background: map-get($map:$mapadecolores, $key:color);
+    transition: .5s;
+}
+
+.checkbtn {
+    @include base;
+    font-size:30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    display: none;
+}
+
+#check {
+    display:none;
+}
+
+.titulo {
+    padding: 80px 0 50px 0;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.btn-wsp {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    line-height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background: map-get($map:$mapadecolores, $key:whatsapp);
+    color: $blanco;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.btn-wsp:hover {
+    color: map-get($map:$mapadecolores, $key:whatsapp);
+    background: $blanco;
+}
+
+header a .fab {
+    font-size: 35px; 
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.contenidobx {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background: $blanco;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0,0.1);  
+    z-index: 10;   
+}
+
+.contenidobx .imgbx {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenidobx .imgbx::before {
+    content:'';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #e7ffe0;
+    border-radius: 50%;
+}
+
+.contenidobx .imgbx img {
+    position: relative;
+    max-width: 250px;
+    z-index: 20;
+}
+
+.contenidobx .contenido {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenidobx .contenido h3 {
+    color: #333;
+    line-height: 1em;
+    font-weight: 300;
+    font-size: 2em;
+}
+
+.contenidobx .contenido h2 {
+    font-size: 4em;
+    color: #ff4d54;
+    line-height: 1em;
+}
+
+.contenidobx .contenido h2 span {
+    color: #333;
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+
+.contenidobx .contenido p {
+    font-weight: 300;
+}
+
+.contenidobx .contenido a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff4d54;
+    color: $blanco;
+    margin-top: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contenido a:hover {
+        opacity: 1;
+        transition: .2s;
+        font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #f3f3f3 url(../img/close.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.tarjetas {
+    width: 100%;
+    margin: 50px;
+    border-radius: 6px;
+    cursor: default;
+    transition: all 400ms ease;
+
+    &:hover {
+        transform: translateY(-3%);
+    }
+ }
+
+.precio {
+    padding: 5px;
+    color: $negro;
+    font-size: 22px;
+    text-align: center;
+   
+}
+
+.cuotas {
+    @extend .precio;
+    font-size: 18px;
+}
+  
+.buttonc {
+    @include base;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    background-color:map-get($map:$mapadecolores, $key:color);
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    opacity: 0.9;
+}
+  
+.buttonc:hover {
+    opacity: 1;
+    transition: .2s;
+    font-weight: bold;
+}
+
+.buttona {
+    @extend .buttonc;
+    background-color:map-get($map:$mapadecolores, $key:color1);
+}
+
+.butona:hover {
+    @extend .buttonc:hover;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: $negro;
+    text-align: center;
+    padding-bottom: 25px;
+    color: $blanco;
+}
+
+.footer__redes {
+    display: flex;
+    height: 15vh;
+    align-items: center;
+    justify-content: center;
+
+    ul li {
+        display: inline-block;
+        margin: 0 5px;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+
+        a {
+            display: block;
+            background: $negro;
+            color: $blanco;
+            line-height: 50px;
+            font-size:18px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .2) ;
+            transition: .2s;
+            padding: 0px 5px;
+            border-radius: 3px ;
+        }   
+
+        a:hover {
+            transform: translate(-3px) scale(1.05);
+            box-shadow: 0 5px 5px 0px rgba(0, 0, 0, .4);
+            filter: none;
+        }
+
+    }
+
+    ul:hover a {
+        filter: blur(2px);
+    }
+
+}
+
+.facebook:hover {
+    background: map-get($map:$mapadecolores, $key:facebook);
+}
+
+.instagram:hover {
+    background:  map-get($map:$mapadecolores, $key:instagram);
+}
+
+.footer__navegador ul li {
+    display: inline-block;
+    padding: 0 15px;
+
+    a {
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+        text-align: center;
+        color: $blanco;
+        opacity: 0.8;
+    }
+
+    
+    a:hover {
+        opacity: 1;
+        font-weight: bold;
+    } 
+   
+}
+
+.copyright {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size:13px;
+    color: #aaa;
+    text-align: center;
+}
+
+.quienes-somos {
+    padding: 5rem 0 5rem 0;
+}
+
+.nosotros {
+    padding: 0 10% 5% 10%;
+}
+
+.container {
+    margin-bottom: 10%;
+}
+
+.formulario {
+    background: rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.57 );
+    color: map-get($map:$mapadecolores, $key:color);
+}
+
+.colors {
+    color: map-get($map:$mapadecolores, $key:color);
+}
+
+.form-control {
+    background: rgba(0,0,0,.3);
+    border-style: none;
+    transition: 0.5s ease-in; 
+    outline: none;
+    box-shadow: none;
+    border: 1px solid map-get($map:$mapadecolores, $key:color);
+}
+
+.form-control:focus {
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: map-get($map:$mapadecolores, $key:color);
+}
+
+.ingresar {
+    background: #222a3f;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700 !important;
+    color: $blanco;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.57);
+    transition: 0.5s ease-in;
+
+    &:hover {
+        color: rgb(158, 157, 157);
+    }
+
+}
+
+.olvide {
+    color: map-get($map:$mapadecolores, $key:color);
+
+    &:hover {
+        @include base;
+    }
+}
+
+
+
+.olvide1 {
+    @extend .olvide;
+    font-size: 20px;
+    font-weight: 700 !important;
+
+    &:hover {
+        @include base;
+    }
+}
+
+.buttons {
+    width: 100%;
+    background: map-get($map:$mapadecolores, $key:color);
+    border: none;
+    border-radius: 10px;
+}
+
+.comentario {
+    width: 100%;
+    border: 1px solid map-get($map:$mapadecolores, $key:color);
+    margin-bottom: 15px;
+    padding: 50px 10px;
+    background: rgba(0,0,0,.3);;
+    font-size: 30px;
+    border-radius: 15px;
+}    
+
+.maps {
+    width: 100%;
+}   
+
+@media (max-width: 1024px) {
+    .enlace {
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size:16px;
+    }
+    .footer__navegador ul li a{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .checkbtn {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        width: 100%;
+        height:100vh;
+        background: $negro;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+
+        li {
+            display: block;
+            margin: 50px 0;
+            line-height: 30px;
+        
+            a {
+                font-size: 20px;
+            }
+
+            a:hover {
+                @include background;
+        
+            }
+        }
+    }
+ 
+    .contenidobx {
+        width: 300px;
+        height: auto;
+        flex-direction: column; 
+    }
+
+    .contenidobx .imgbx {
+        height: 200px;
+        transform: translateY(-10px);
+    }
+
+    .contenidobx .img::before {
+        background: $blanco;
+    }
+
+    .comtenidobx .contenido {
+        height: auto;
+        text-align: center;
+        padding: 20px;
+        padding-top: 0;
+    }
+
+    .close {
+        top: -30px;
+        right: -10px;
+        background: #f3f3f3 url(../img/close.png);
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: center;
+    }
+
+    .active {
+        @include background;
+    }
+
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    .form-contacto{
+        width: 100%;
+    }
+    
+    .maps {
+        margin-top:10px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .footer__navegador ul li  {
+        display: block;
+        padding: 0 15px
+    } 
+
+}
