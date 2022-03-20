@@ -437,6 +437,10 @@ header a .fab {
   width: 100%;
 }
 
+.gracias {
+  height: 60vh;
+}
+
 @media (max-width: 1024px) {
   .enlace {
     padding-left: 20px;
