@@ -11,6 +11,10 @@
     color: $blanco;
 }
 
+/*@mixin instagram {
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #9b36b7 62%, #9b36b7 85%, #515ecf);
+}*/
+
 *{
   padding: 0;
   margin: 0;
@@ -306,7 +310,7 @@ header a .fab {
             box-shadow: 0 3px 5px rgba(0, 0, 0, .2) ;
             transition: .2s;
             padding: 0px 5px;
-            border-radius: 3px ;
+            border-radius: 5px;
         }   
 
         a:hover {
@@ -328,7 +332,8 @@ header a .fab {
 }
 
 .instagram:hover {
-    background:  map-get($map:$mapadecolores, $key:instagram);
+    /*background:  map-get($map:$mapadecolores, $key:instagram);*/
+    background: radial-gradient(circle at 32% 100%, #fed373 4%, #f15245 30%, #9b36b7 62%, #9b36b7 70%, #515ecf 95%);
 }
 
 .footer__navegador ul li {
